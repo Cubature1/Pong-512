@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dyox3fr35wwwf"]
+
+[ext_resource type="Shader" uid="uid://c6g35rmt1llg2" path="res://shaders/paddle_default.tres" id="1_3xiby"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f1ek4"]
+size = Vector3(0.3, 0.3, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lj8b5"]
+render_priority = 0
+shader = ExtResource("1_3xiby")
+
+[sub_resource type="BoxMesh" id="BoxMesh_f1ek4"]
+material = SubResource("ShaderMaterial_lj8b5")
+size = Vector3(0.3, 0.3, 2)
+
+[node name="Paddle" type="Area3D" unique_id=1578114145]
+
+[node name="PaddleCollision" type="CollisionShape3D" parent="." unique_id=1975570137]
+shape = SubResource("BoxShape3D_f1ek4")
+
+[node name="PaddleShape" type="MeshInstance3D" parent="." unique_id=2000125108]
+mesh = SubResource("BoxMesh_f1ek4")

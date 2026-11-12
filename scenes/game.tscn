@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://brluw7ose5riu"]
+
+[ext_resource type="Script" uid="uid://f1gik0qeqvk0" path="res://scripts/game.gd" id="1_lnu2h"]
+[ext_resource type="Shader" uid="uid://jflbavgluy4c" path="res://shaders/basic.tres" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dyox3fr35wwwf" path="res://scenes/paddle.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://byl30pel65lvj" path="res://scenes/p1_control.gd" id="3_lbhrr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mwb40"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_80nbo"]
+sky_material = SubResource("ProceduralSkyMaterial_mwb40")
+
+[sub_resource type="Environment" id="Environment_e2o6t"]
+background_mode = 2
+sky = SubResource("Sky_80nbo")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_iywne"]
+
+[sub_resource type="Compositor" id="Compositor_lbhrr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqjtg"]
+render_priority = 0
+shader = ExtResource("1_uwrxv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f1ek4"]
+material = SubResource("ShaderMaterial_yqjtg")
+size = Vector2(16, 9)
+
+[node name="Game" type="Node3D" unique_id=2130585390]
+script = ExtResource("1_lnu2h")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1760550017]
+environment = SubResource("Environment_e2o6t")
+camera_attributes = SubResource("CameraAttributesPractical_iywne")
+compositor = SubResource("Compositor_lbhrr")
+
+[node name="MainCamera" type="Camera3D" parent="." unique_id=780641728]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 14, 0)
+current = true
+fov = 37.5
+size = 15.0
+far = 100.0
+
+[node name="DELETEMEboundsplaceholder" type="MeshInstance3D" parent="." unique_id=122365504]
+visible = false
+mesh = SubResource("PlaneMesh_f1ek4")
+
+[node name="P1Control" type="Node3D" parent="." unique_id=608148227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+script = ExtResource("3_lbhrr")
+
+[node name="Player1Paddle" parent="P1Control" unique_id=1578114145 instance=ExtResource("2_yqjtg")]
+
+[node name="P1StartPos" type="Marker3D" parent="." unique_id=1529236477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+gizmo_extents = 1.5
+
+[node name="P2Control" type="Node3D" parent="." unique_id=688928623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="Player2Paddle" parent="P2Control" unique_id=1495825498 instance=ExtResource("2_yqjtg")]
+
+[node name="P2StartPos" type="Marker3D" parent="." unique_id=1178444271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+gizmo_extents = 1.5

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c6h3pvjdua7ns"]
+
+[ext_resource type="Shader" uid="uid://ltqp3ubnwkgh" path="res://shaders/ball_default.tres" id="1_7s4qf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f1ek4"]
+radius = 1.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cxlvu"]
+render_priority = 0
+shader = ExtResource("1_7s4qf")
+
+[sub_resource type="SphereMesh" id="SphereMesh_n1dj2"]
+material = SubResource("ShaderMaterial_cxlvu")
+radius = 1.5
+height = 3.0
+radial_segments = 16
+rings = 8
+
+[node name="Ball" type="Area3D" unique_id=896490182]
+
+[node name="BallCollision" type="CollisionShape3D" parent="." unique_id=396047747]
+shape = SubResource("SphereShape3D_f1ek4")
+
+[node name="BallShape" type="MeshInstance3D" parent="." unique_id=1070883969]
+mesh = SubResource("SphereMesh_n1dj2")

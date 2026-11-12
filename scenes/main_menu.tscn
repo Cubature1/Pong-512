@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dkphds77nnn3t"]
+
+[ext_resource type="FontFile" uid="uid://mar5tt5pfbsw" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="1_l6cm7"]
+[ext_resource type="Theme" uid="uid://dpplirsn5ku20" path="res://assets/themes/buttons.tres" id="2_ekxnf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vue75"]
+font = ExtResource("1_l6cm7")
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_u88n3"]
+font = ExtResource("1_l6cm7")
+font_size = 32
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="MarginContainer" unique_id=1234751148]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="MenuSplitContainer" type="HBoxContainer" parent="." unique_id=1122746942]
+layout_mode = 2
+
+[node name="MenuLeftContainer" type="VBoxContainer" parent="MenuSplitContainer" unique_id=2135886888]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MenuSplitContainer/MenuLeftContainer" unique_id=408267588]
+layout_mode = 2
+text = "PONG 512"
+label_settings = SubResource("LabelSettings_vue75")
+
+[node name="MenuOptionsContainer" type="VBoxContainer" parent="MenuSplitContainer/MenuLeftContainer" unique_id=1059141974]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 32
+
+[node name="Play" type="Button" parent="MenuSplitContainer/MenuLeftContainer/MenuOptionsContainer" unique_id=354271647]
+layout_mode = 2
+theme = ExtResource("2_ekxnf")
+text = "Play"
+flat = true
+alignment = 0
+
+[node name="Options" type="Button" parent="MenuSplitContainer/MenuLeftContainer/MenuOptionsContainer" unique_id=1345733106]
+layout_mode = 2
+theme = ExtResource("2_ekxnf")
+text = "Options"
+flat = true
+alignment = 0
+
+[node name="Quit" type="Button" parent="MenuSplitContainer/MenuLeftContainer/MenuOptionsContainer" unique_id=91095285]
+layout_mode = 2
+theme = ExtResource("2_ekxnf")
+text = "Quit"
+flat = true
+alignment = 0
+
+[node name="Version" type="Label" parent="MenuSplitContainer/MenuLeftContainer" unique_id=473634475]
+layout_mode = 2
+text = "0.0.1
+Cubature"
+label_settings = SubResource("LabelSettings_u88n3")
+
+[node name="MenuSplashContainer" type="CenterContainer" parent="MenuSplitContainer" unique_id=1512000326]
+layout_mode = 2
+size_flags_horizontal = 3

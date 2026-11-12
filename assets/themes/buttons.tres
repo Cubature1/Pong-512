@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://dpplirsn5ku20"]
+
+[ext_resource type="FontFile" uid="uid://mar5tt5pfbsw" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="1_as3k4"]
+
+[resource]
+resource_name = "Buttons"
+default_font = ExtResource("1_as3k4")
+default_font_size = 64
